@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <version>0.1.0</version>
+        <models>
+            <webaicustfields>
+                <class>Webai_Custfields_Model</class>
+            </webaicustfields>
+        </models>
+
+        <events>
+            <adminhtml_cms_page_edit_tab_content_prepare_form>
+                <observers>
+                    <webai_page_edit_tab_content>
+                        <type>singleton</type>
+                        <class>Webai_Custfields_Model_Observer</class>
+                        <method>cmsFields</method>
+                    </webai_page_edit_tab_content>
+                </observers>
+            </adminhtml_cms_page_edit_tab_content_prepare_form>
+        </events>
+
+        <resources>
+            <custfields_setup>
+                <setup>
+                    <module>Webai_Custfields</module>
+                    <setup>
+                        <connection>
+                            <use>core_setup</use>
+                        </connection>
+                    </setup>
+                </setup>
+            </custfields_setup>
+            <custfields_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </custfields_write>
+            <custfields_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </custfields_read>
+        </resources>
+
+    </global>
+</config>
